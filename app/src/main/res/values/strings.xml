@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">My caller</string>
+    <string name="open_drawer">Open Navigation</string>
+    <string name="close_drawer">Close Navigation</string>
+</resources>

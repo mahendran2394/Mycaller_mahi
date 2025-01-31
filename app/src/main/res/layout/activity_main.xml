@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!-- Main UI Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#F5F5F5">
+
+        <!-- Toolbar without Burger Menu -->
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:title="My Caller App"
+            app:titleTextColor="@android:color/white"
+            android:visibility="gone" />
+
+        <!-- Options at the top -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:padding="10dp"
+            android:background="?attr/colorPrimary">
+
+            <Button
+                android:id="@+id/option1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Call history"
+                android:textColor="@android:color/white"
+                android:layout_marginEnd="20dp"/>
+
+            <Button
+                android:id="@+id/option2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contacts"
+                android:textColor="@android:color/white"/>
+        </LinearLayout>
+
+        <!-- Dialer UI -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <!-- Phone Number Display -->
+            <TextView
+                android:id="@+id/tvPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textSize="28sp"
+                android:textStyle="bold"
+                android:padding="15dp"
+                android:background="@drawable/rounded_bg"
+                android:textColor="@android:color/black"
+                android:text=""/>
+
+            <!-- Delete Button moved to next to TV PhoneNumber -->
+            <Button
+                android:id="@+id/dial_button_delete"
+                style="@style/DialerButton"
+                android:text="⌫"
+                android:textColor="@android:color/holo_red_dark"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="10dp"/>
+
+            <!-- Dial Pad -->
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="3"
+                android:rowCount="4"
+                android:layout_marginTop="20dp">
+
+                <!-- Number Buttons -->
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_1" android:text="1"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_2" android:text="2"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_3" android:text="3"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_4" android:text="4"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_5" android:text="5"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_6" android:text="6"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_7" android:text="7"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_8" android:text="8"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_9" android:text="9"/>
+
+                <!-- * 0 # Buttons in the same row -->
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_star" android:text="*"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_0" android:text="0"/>
+                <Button style="@style/DialerButton" android:id="@+id/dial_button_hash" android:text="#"/>
+            </GridLayout>
+
+            <!-- Dial Button Alone -->
+            <Button
+                android:id="@+id/dial_button_call"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:backgroundTint="@android:color/holo_green_dark"
+                android:text="📞"
+                android:textSize="22sp"
+                android:textColor="@android:color/white"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Navigation Drawer -->
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigation_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/menu_navigation" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
